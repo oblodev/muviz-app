@@ -1,0 +1,88 @@
+.discover {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.discover-muvi,
+.discover-genres {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 1px;
+  border-bottom: 1px solid #000;
+}
+
+.discover-genres h2 {
+  margin-right: 60px;
+}
+
+.discover-muvi .muvi-list {
+  margin-left: 60px;
+}
+
+.discover-genres .genres-list {
+  margin-left: 4px;
+  text-align: left;
+}
+
+.genre-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.muvi-list ul,
+.genres-list ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.muvi-list ul li button,
+.genres-list ul li a {
+  display: block;
+  margin-right: 20px;
+  padding: 6px 48px 6px 24px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #546e7a;
+  font-size: 14px !important;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.15s ease-in;
+  background-color: inherit;
+}
+
+.genres-list ul li {
+  padding: 8px 8px 8px 0px;
+}
+
+.genres-list ul li button {
+  padding: 8px 48px 8px 16px;
+}
+
+.muvi-list ul li button:hover,
+.genres-list ul li a:hover {
+  border: 1px solid #546e7a;
+  cursor: pointer;
+}
+
+.muvi-list ul li button.active,
+.genres-list ul li a.active {
+  border: 1px solid #000;
+  color: #263238;
+}
+
+.d-icon {
+  width: 18px !important;
+  height: 18px !important;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.discover-muvi h2,
+.discover-genres h2 {
+  font-size: 16px;
+  padding-top: 6px;
+}

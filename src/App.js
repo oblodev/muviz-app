@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header/Header";
+import Discover from "./components/Discover/Discover";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [genres, SetGenres] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=52291c7d63b8c123354a244384d96744&language=en-US`
+      );
+      console.log(result.data.genres);
+      SetGenres(result.data.genres);
+    };
+
+    fetchItems();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <Discover genres={genres} />
     </div>
   );
 }

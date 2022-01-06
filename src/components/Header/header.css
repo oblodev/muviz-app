@@ -1,0 +1,13 @@
+header {
+  height: 220px;
+}
+
+header img {
+  width: 220px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
