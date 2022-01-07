@@ -22,6 +22,7 @@ function App() {
   return (
     <div className="container">
       <Header />
+
       <Discover genres={genres} />
     </div>
   );

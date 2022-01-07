@@ -15,16 +15,38 @@ function Discover() {
   const [selectedPop, setSelectedPop] = useState(true);
   const [selectedTop, setSelectedTop] = useState(false);
   const [selectedRev, setSelectedRev] = useState(false);
+  const [text, setText] = useState("");
   const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
-  const current = new Date();
-  const date = `${current.getDate()}-${
-    current.getMonth() + 1
-  }-${current.getFullYear()}`;
 
-  console.log(date);
+  function SearchMovie() {
+    const fetchItems = async () => {
+      const result = await axios(
+        `
+        https://api.themoviedb.org/3/search/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&query=${text}&page=1&include_adult=false`
+      );
+
+      //console.log(result.data.results);
+      setItems(result.data.results);
+    };
+
+    fetchItems();
+  }
 
   function GetPopularData(sort, page) {
+    const fetchItems = async () => {
+      const result = await axios(
+        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
+      );
+
+      //console.log(result.data.results);
+      setItems(result.data.results);
+    };
+
+    fetchItems();
+  }
+
+  function GetTopRatedData(sort, page) {
     const fetchItems = async () => {
       const result = await axios(
         `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
@@ -37,20 +59,7 @@ function Discover() {
     fetchItems();
   }
 
-  function GetTopRatedData(sort) {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=1&vote_count.gte=1000&with_watch_monetization_types=flatrate`
-      );
-
-      console.log(result.data.results);
-      setItems(result.data.results);
-    };
-
-    fetchItems();
-  }
-
-  function GetTopRevenueData(sort) {
+  function GetTopRevenueData(sort, page) {
     const fetchItems = async () => {
       const result = await axios(
         `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
@@ -79,6 +88,21 @@ function Discover() {
 
   return (
     <div className="discover">
+      <section className="search">
+        <form>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search Movies"
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+              SearchMovie(text);
+            }}
+            autoFocus
+          />
+        </form>
+      </section>
       <div className="discover-muvi">
         <h2>DISCOVER MOVIES</h2>
         <div className="muvi-list">
@@ -87,7 +111,7 @@ function Discover() {
               <button
                 className={selectedPop ? "active" : ""}
                 onClick={() => {
-                  GetPopularData("popularity.desc");
+                  GetPopularData("popularity.desc", page);
                   setSelectedRev(false);
                   setSelectedTop(false);
                   setSelectedPop(true);
@@ -100,7 +124,7 @@ function Discover() {
               <button
                 className={selectedTop ? "active" : ""}
                 onClick={() => {
-                  GetTopRatedData("vote_average.desc");
+                  GetTopRatedData("vote_average.desc", page);
                   setSelectedRev(false);
                   setSelectedTop(true);
                   setSelectedPop(false);
@@ -114,7 +138,7 @@ function Discover() {
               <button
                 className={selectedRev ? "active" : ""}
                 onClick={() => {
-                  GetTopRevenueData("revenue.desc");
+                  GetTopRevenueData("revenue.desc", page);
                   setSelectedRev(true);
                   setSelectedTop(false);
                   setSelectedPop(false);
@@ -149,7 +173,7 @@ function Discover() {
         </button>
 
         <button className="hidden" onClick={() => setPage(page + 1)}>
-          Page {page}
+          Page {page + 1}
         </button>
       </div>
     </div>
