@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Discover from "./components/Discover/Discover";
+import Footer from "./components/footer/Footer";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -22,8 +23,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-
       <Discover genres={genres} />
+      <Footer />
     </div>
   );
 }
