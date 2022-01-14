@@ -33,7 +33,6 @@
   position: absolute;
   bottom: 0;
   left: 60px;
-
   padding-bottom: 10px;
 }
 
@@ -120,4 +119,15 @@
 
 .hidden {
   opacity: 0;
+}
+
+@media (max-width: 500px) {
+  .wrap {
+    font-size: 14px;
+    left: 54px;
+  }
+
+  .btn-more {
+    font-size: 16px;
+  }
 }

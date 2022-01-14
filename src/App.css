@@ -105,9 +105,29 @@ a {
   .cards {
     grid-template-columns: 1fr;
   }
+
+  .card {
+  }
+
+  .card h1 {
+    font-size: 18px;
+  }
   .card img {
     width: 100%;
     height: 300px;
     object-fit: contain;
+  }
+
+  .card-back {
+    font-size: 14px;
+    width: 66%;
+    height: 300px;
+    margin-left: 58px;
+    transform: rotateY(180deg);
+  }
+
+  .card-back h1,
+  .card-back ul {
+    font-size: 14px;
   }
 }

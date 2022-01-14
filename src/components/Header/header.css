@@ -1,13 +1,14 @@
 header {
-  height: 220px;
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
 header img {
   width: 220px;
+  height: 62px;
 }
 
 .center {
   display: flex;
-  align-items: center;
   justify-content: center;
 }

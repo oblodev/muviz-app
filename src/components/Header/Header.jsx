@@ -4,7 +4,7 @@ import logo from "../../img/muviz-logo.png";
 function Header() {
   return (
     <header className="center">
-      <img src={logo} alt="" />
+      <img src={logo} alt="" className="logo" />
     </header>
   );
 }

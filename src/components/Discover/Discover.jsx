@@ -12,6 +12,7 @@ import MuvizGrid from "../MuvizGrid/MuvizGrid";
 import axios from "axios";
 
 function Discover() {
+  const [sort, setSort] = useState("popularity.desc");
   const [selectedPop, setSelectedPop] = useState(true);
   const [selectedTop, setSelectedTop] = useState(false);
   const [selectedRev, setSelectedRev] = useState(false);
@@ -33,6 +34,7 @@ function Discover() {
     fetchItems();
   }
 
+  /*
   function GetPopularData(sort, page) {
     const fetchItems = async () => {
       const result = await axios(
@@ -71,11 +73,11 @@ function Discover() {
 
     fetchItems();
   }
-
+  */
   useEffect(() => {
     const fetchItems = async () => {
       const result = await axios(
-        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
       );
       //console.log(result.data);
       //console.log(result.data.results);
@@ -84,7 +86,7 @@ function Discover() {
     };
 
     fetchItems();
-  }, [page]);
+  }, [sort, page]);
 
   return (
     <div className="discover">
@@ -111,10 +113,12 @@ function Discover() {
               <button
                 className={selectedPop ? "active" : ""}
                 onClick={() => {
-                  GetPopularData("popularity.desc", page);
+                  //GetPopularData("popularity.desc", page);
+                  setSort("popularity.desc");
                   setSelectedRev(false);
                   setSelectedTop(false);
                   setSelectedPop(true);
+                  setPage(1);
                 }}
               >
                 <Favorite className="d-icon" /> <span>Popular</span>
@@ -124,10 +128,12 @@ function Discover() {
               <button
                 className={selectedTop ? "active" : ""}
                 onClick={() => {
-                  GetTopRatedData("vote_average.desc", page);
+                  //GetTopRatedData("vote_average.desc", page);
+                  setSort("vote_average.desc");
                   setSelectedRev(false);
                   setSelectedTop(true);
                   setSelectedPop(false);
+                  setPage(1);
                 }}
               >
                 <VerticalAlignTop className="d-icon" />
@@ -138,10 +144,12 @@ function Discover() {
               <button
                 className={selectedRev ? "active" : ""}
                 onClick={() => {
-                  GetTopRevenueData("revenue.desc", page);
+                  //GetTopRevenueData("revenue.desc", page);
+                  setSort("revenue.desc");
                   setSelectedRev(true);
                   setSelectedTop(false);
                   setSelectedPop(false);
+                  setPage(1);
                 }}
               >
                 <AttachMoney className="d-icon" />
@@ -172,7 +180,7 @@ function Discover() {
           Page {page - 1}
         </button>
 
-        <button className="hidden" onClick={() => setPage(page + 1)}>
+        <button className="btn-right" onClick={() => setPage(page + 1)}>
           Page {page + 1}
         </button>
       </div>

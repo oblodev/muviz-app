@@ -13,3 +13,59 @@ h5 {
   width: 140px;
   height: 50px;
 }
+
+@media (max-width: 500px) {
+  h5 {
+    font-size: 12px;
+  }
+
+  .tmdb {
+    width: 110px;
+    height: 40px;
+  }
+}
+
+.container {
+  justify-content: center;
+  width: 100%;
+}
+
+.container:nth-child(2) {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outer-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.outer-left {
+  display: flex;
+  align-items: flex-end;
+}
+
+.outer-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.outer-centered .inner {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.outer-left .inner {
+  display: flex;
+  align-items: flex-end;
+}
+
+.outer-right .inner {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: right;
+}
