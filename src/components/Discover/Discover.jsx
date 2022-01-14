@@ -34,53 +34,11 @@ function Discover() {
     fetchItems();
   }
 
-  /*
-  function GetPopularData(sort, page) {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
-      );
-
-      //console.log(result.data.results);
-      setItems(result.data.results);
-    };
-
-    fetchItems();
-  }
-
-  function GetTopRatedData(sort, page) {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
-      );
-
-      console.log(result.data.results);
-      setItems(result.data.results);
-    };
-
-    fetchItems();
-  }
-
-  function GetTopRevenueData(sort, page) {
-    const fetchItems = async () => {
-      const result = await axios(
-        `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
-      );
-
-      console.log(result.data.results);
-      setItems(result.data.results);
-    };
-
-    fetchItems();
-  }
-  */
   useEffect(() => {
     const fetchItems = async () => {
       const result = await axios(
         `https://api.themoviedb.org/3/discover/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&sort_by=${sort}&include_adult=false&include_video=false&page=${page}&vote_count.gte=1000&with_watch_monetization_types=flatrate`
       );
-      //console.log(result.data);
-      //console.log(result.data.results);
 
       setItems(result.data.results);
     };
