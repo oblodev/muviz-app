@@ -56,9 +56,14 @@ function MuvizDetails() {
         </div>
 
         <h5>Storyline</h5>
-        <p>{movieDetails.overview}</p>
+        <p className="muviz-overview">{movieDetails.overview}</p>
         <h5>Genres</h5>
-        {isFetched && movieDetails.genres.map((genre) => <p>{genre.name}</p>)}
+        <div className="genres-info">
+          {isFetched &&
+            movieDetails.genres.map((genre) => (
+              <p className="genres-p">{genre.name}</p>
+            ))}
+        </div>
       </div>
     </div>
   );
