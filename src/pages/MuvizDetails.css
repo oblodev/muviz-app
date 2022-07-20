@@ -1,0 +1,43 @@
+.muviz-details {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.muviz-details h5 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.muviz-details-poster {
+  padding: 1.25rem;
+}
+
+.muviz-details-poster img {
+  border-radius: 0.5rem;
+  box-shadow: 0rem 2rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.muviz-details-info {
+  padding: 1rem;
+}
+
+.muviz-details-info h2 {
+  font-size: 2.25rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.muviz-details-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.muviz-details-info-wrap .stars {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}

@@ -27,7 +27,6 @@ function Discover() {
         https://api.themoviedb.org/3/search/movie?api_key=52291c7d63b8c123354a244384d96744&language=en-US&query=${text}&page=1&include_adult=false`
       );
 
-      //console.log(result.data.results);
       setItems(result.data.results);
     };
 

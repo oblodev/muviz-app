@@ -1,5 +1,7 @@
 import "./muvizitem.css";
+import { useEffect } from "react";
 import { Star } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 function MuviItem({ item }) {
   const poster = `https://image.tmdb.org/t/p/w342/`;
@@ -40,9 +42,9 @@ function MuviItem({ item }) {
           </ul>
           <div className="wrap">
             <div className="btn-wrapper">
-              <a href="www.google.com">
+              <Link key={item.id} to={`/${item.id}`}>
                 <button className="btn-more">See more</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
