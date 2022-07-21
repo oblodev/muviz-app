@@ -30,10 +30,18 @@ function MuvizDetails() {
 
   return (
     <div className="muviz-details">
-      <div className="muviz-details-poster">
+      <motion.div
+        animate={{ x: [-50, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.65 }}
+        className="muviz-details-poster"
+      >
         <img src={poster + movieDetails.poster_path} alt="movie_poster" />
-      </div>
-      <div className="muviz-details-info">
+      </motion.div>
+      <motion.div
+        animate={{ x: [50, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.65 }}
+        className="muviz-details-info"
+      >
         <h2>{movieDetails.original_title}</h2>
         <h4>{movieDetails.tagline}</h4>
         <div className="muviz-details-info-wrap">
@@ -64,7 +72,12 @@ function MuvizDetails() {
               <p className="genres-p">{genre.name}</p>
             ))}
         </div>
-      </div>
+        <div>
+          <Link className="link-btn" to="/">
+            Back
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,10 +1,13 @@
 import "./header.css";
 import logo from "../../img/muviz-logo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header className="center">
-      <img src={logo} alt="" className="logo" />
+      <Link to="/">
+        <img src={logo} alt="" className="logo" />
+      </Link>
     </header>
   );
 }
