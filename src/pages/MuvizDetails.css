@@ -96,3 +96,21 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-5px) !important;
 }
+
+@media (max-width: 500px) {
+  .muviz-details {
+    display: flex;
+    flex-direction: column !important;
+    padding: 0.5rem;
+    align-items: center;
+  }
+
+  .muviz-details-poster img {
+    width: 220px;
+    margin-bottom: 1rem;
+  }
+
+  .muviz-details-info h2 {
+    font-size: 1.9rem;
+  }
+}

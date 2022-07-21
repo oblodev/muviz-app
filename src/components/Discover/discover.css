@@ -104,9 +104,6 @@ input[type="text"] {
   padding-top: 6px;
 }
 
-@media (max-width: 800px) {
-}
-
 @media (max-width: 500px) {
   header {
     margin-top: 10px;
