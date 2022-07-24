@@ -12,6 +12,7 @@
 
 .muviz-details-poster {
   padding: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .muviz-details-poster img {
@@ -48,6 +49,18 @@
   color: #444444;
   line-height: 1.5;
   margin-bottom: 2rem;
+}
+
+.story-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.story-info p {
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .genres-info {

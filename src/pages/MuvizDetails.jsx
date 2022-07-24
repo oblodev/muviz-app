@@ -52,7 +52,9 @@ function MuvizDetails() {
             />
             <div className="rating-ratings">
               <p>
-                <span className="bigger">{movieDetails.vote_average}</span>
+                <span className="bigger">
+                  {isFetched && movieDetails.vote_average.toFixed(1)}
+                </span>
                 <span className="medium">/10</span>
               </p>
               <p>
@@ -62,8 +64,13 @@ function MuvizDetails() {
           </div>
           <div className="muviz-info"></div>
         </div>
-
-        <h5>Storyline</h5>
+        <div className="story-info">
+          <h5>Storyline</h5>
+          <p>
+            {movieDetails.runtime} Min./{" "}
+            {isFetched && movieDetails.release_date.slice(0, 4)}
+          </p>
+        </div>
         <p className="muviz-overview">{movieDetails.overview}</p>
         <h5>Genres</h5>
         <div className="genres-info">
