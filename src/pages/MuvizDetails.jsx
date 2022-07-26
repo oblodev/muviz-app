@@ -7,6 +7,9 @@ import { Star } from "@material-ui/icons";
 
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
+import { TiArrowBack } from "react-icons/ti";
+import { AiFillHome } from "react-icons/ai";
+import { TbMovie } from "react-icons/tb";
 
 function MuvizDetails() {
   const [movieDetails, setMovieDetails] = useState("");
@@ -80,8 +83,18 @@ function MuvizDetails() {
             ))}
         </div>
         <div>
+          <a className="link-btn" href={movieDetails.homepage} target="_blank">
+            <AiFillHome className="btn-icon" /> Homepage
+          </a>
+          <a
+            className="link-btn"
+            href={`https://www.imdb.com/title/${movieDetails.imdb_id}`}
+            target="_blank"
+          >
+            <TbMovie className="btn-icon" /> imdb
+          </a>
           <Link className="link-btn" to="/">
-            Back
+            <TiArrowBack className="btn-icon" /> Back
           </Link>
         </div>
       </motion.div>
